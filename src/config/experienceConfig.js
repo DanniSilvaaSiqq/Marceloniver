@@ -9,7 +9,7 @@
  */
 
 export const AUDIO_CONFIG = {
-  src: '/audio/lights-are-on.mp3',
+  src: './audio/lights-are-on.mp3',
   title: 'Lights Are On (Acapella) — Edith Whiskers',
   targetVolume: 0.2,
   fadeInMs: 2400,
@@ -30,13 +30,13 @@ export const INTRO_CONFIG = {
   preloadTimeoutMs: 4500,
   // Imagens essenciais pré-carregadas antes de liberar a Hero
   essentialPreload: [
-    '/images/hero-background.jpg',
-    '/images/hero.jpg',
+    './images/hero-background.jpg',
+    './images/hero.jpg',
   ],
   photos: [
     {
       id: 'intro-01',
-      src: '/images/story/memory-03.jpg',
+      src: './images/story/memory-03.jpg',
       alt: 'Memória do álbum 01',
       format: 'portrait',
       framed: true,
@@ -50,7 +50,7 @@ export const INTRO_CONFIG = {
     },
     {
       id: 'intro-02',
-      src: '/images/story/memory-21.jpg',
+      src: './images/story/memory-21.jpg',
       alt: 'Memória do álbum 02',
       format: 'landscape',
       framed: false,
@@ -64,7 +64,7 @@ export const INTRO_CONFIG = {
     },
     {
       id: 'intro-03',
-      src: '/images/story/memory-15.jpg',
+      src: './images/story/memory-15.jpg',
       alt: 'Memória do álbum 03',
       format: 'square',
       framed: true,
@@ -78,7 +78,7 @@ export const INTRO_CONFIG = {
     },
     {
       id: 'intro-04',
-      src: '/images/story/memory-24.jpg',
+      src: './images/story/memory-24.jpg',
       alt: 'Memória do álbum 04',
       format: 'panoramic',
       framed: false,
@@ -93,7 +93,7 @@ export const INTRO_CONFIG = {
     // Pequena pausa rítmica antes da segunda camada de sobreposições
     {
       id: 'intro-05',
-      src: '/images/story/memory-29.jpg',
+      src: './images/story/memory-29.jpg',
       alt: 'Memória do álbum 05',
       format: 'portrait',
       framed: false,
@@ -107,7 +107,7 @@ export const INTRO_CONFIG = {
     },
     {
       id: 'intro-06',
-      src: '/images/story/memory-16.jpg',
+      src: './images/story/memory-16.jpg',
       alt: 'Memória do álbum 06',
       format: 'square',
       framed: true,
@@ -121,7 +121,7 @@ export const INTRO_CONFIG = {
     },
     {
       id: 'intro-07',
-      src: '/images/story/memory-01.jpg',
+      src: './images/story/memory-01.jpg',
       alt: 'Memória do álbum 07',
       format: 'panoramic',
       framed: true,
@@ -135,7 +135,7 @@ export const INTRO_CONFIG = {
     },
     {
       id: 'intro-08',
-      src: '/images/story/memory-38.jpg',
+      src: './images/story/memory-38.jpg',
       alt: 'Memória do álbum 08',
       format: 'landscape',
       framed: true,
@@ -150,7 +150,7 @@ export const INTRO_CONFIG = {
     // Última camada sutil criando sobreposição editorial de álbum físico
     {
       id: 'intro-09',
-      src: '/images/story/memory-32.jpg',
+      src: './images/story/memory-32.jpg',
       alt: 'Memória do álbum 09',
       format: 'portrait',
       framed: true,
@@ -164,7 +164,7 @@ export const INTRO_CONFIG = {
     },
     {
       id: 'intro-10',
-      src: '/images/final/final-01.jpg',
+      src: './images/final/final-01.jpg',
       alt: 'Memória do álbum 10',
       format: 'landscape',
       framed: true,
@@ -178,7 +178,7 @@ export const INTRO_CONFIG = {
     },
     {
       id: 'intro-11',
-      src: '/images/final/final-02.jpg',
+      src: './images/final/final-02.jpg',
       alt: 'Memória do álbum 11',
       format: 'square',
       framed: false,
@@ -192,7 +192,7 @@ export const INTRO_CONFIG = {
     },
     {
       id: 'intro-12',
-      src: '/images/story/memory-41.jpg',
+      src: './images/story/memory-41.jpg',
       alt: 'Memória do álbum 12',
       format: 'portrait',
       framed: true,
@@ -210,8 +210,8 @@ export const INTRO_CONFIG = {
 export const HERO_CONFIG = {
   leftWord: 'MAR',
   rightWord: 'CELO',
-  backgroundImage: '/images/hero-background.jpg',
-  portraitImage: '/images/hero.jpg',
+  backgroundImage: './images/hero-background.jpg',
+  portraitImage: './images/hero.jpg',
   portraitAlt: 'Marcelo sorrindo em meio às árvores durante uma trilha',
   // Foco da fotografia dentro do card central (x% y%)
   portraitObjectPosition: '76% 32%',
@@ -243,7 +243,7 @@ export const HERO_CONFIG = {
 export const STORY_PHOTOS = [
   {
     id: 'memory-01',
-    src: '/images/story/memory-01.jpg',
+    src: './images/story/memory-01.jpg',
     alt: 'Memória 01 com Marcelo',
     format: 'panoramic',
     width: 340,
@@ -259,7 +259,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-02',
-    src: '/images/story/memory-02.jpg',
+    src: './images/story/memory-02.jpg',
     alt: 'Memória 02 com Marcelo',
     format: 'landscape',
     width: 265,
@@ -275,7 +275,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-03',
-    src: '/images/story/memory-03.jpg',
+    src: './images/story/memory-03.jpg',
     alt: 'Memória 03 com Marcelo',
     format: 'portrait',
     width: 192,
@@ -291,7 +291,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-04',
-    src: '/images/story/memory-04.jpg',
+    src: './images/story/memory-04.jpg',
     alt: 'Memória 04 com Marcelo',
     format: 'portrait',
     width: 176,
@@ -307,7 +307,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-05',
-    src: '/images/story/memory-05.jpg',
+    src: './images/story/memory-05.jpg',
     alt: 'Memória 05 com Marcelo',
     format: 'portrait',
     width: 204,
@@ -323,7 +323,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-06',
-    src: '/images/story/memory-06.jpg',
+    src: './images/story/memory-06.jpg',
     alt: 'Memória 06 com Marcelo',
     format: 'portrait',
     width: 168,
@@ -339,7 +339,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-15',
-    src: '/images/story/memory-15.jpg',
+    src: './images/story/memory-15.jpg',
     alt: 'Memória 15 com Marcelo',
     format: 'square',
     width: 218,
@@ -355,7 +355,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-07',
-    src: '/images/story/memory-07.jpg',
+    src: './images/story/memory-07.jpg',
     alt: 'Memória 07 com Marcelo',
     format: 'panoramic',
     width: 318,
@@ -371,7 +371,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-20',
-    src: '/images/story/memory-20.jpg',
+    src: './images/story/memory-20.jpg',
     alt: 'Memória 20 com Marcelo',
     format: 'narrow',
     width: 142,
@@ -387,7 +387,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-11',
-    src: '/images/story/memory-11.jpg',
+    src: './images/story/memory-11.jpg',
     alt: 'Memória 11 com Marcelo',
     format: 'landscape',
     width: 282,
@@ -403,7 +403,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-08',
-    src: '/images/story/memory-08.jpg',
+    src: './images/story/memory-08.jpg',
     alt: 'Memória 08 com Marcelo',
     format: 'panoramic',
     width: 356,
@@ -419,7 +419,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-16',
-    src: '/images/story/memory-16.jpg',
+    src: './images/story/memory-16.jpg',
     alt: 'Memória 16 com Marcelo',
     format: 'square',
     width: 206,
@@ -435,7 +435,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-12',
-    src: '/images/story/memory-12.jpg',
+    src: './images/story/memory-12.jpg',
     alt: 'Memória 12 com Marcelo',
     format: 'landscape',
     width: 248,
@@ -451,7 +451,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-09',
-    src: '/images/story/memory-09.jpg',
+    src: './images/story/memory-09.jpg',
     alt: 'Memória 09 com Marcelo',
     format: 'panoramic',
     width: 326,
@@ -467,7 +467,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-13',
-    src: '/images/story/memory-13.jpg',
+    src: './images/story/memory-13.jpg',
     alt: 'Memória 13 com Marcelo',
     format: 'panoramic',
     width: 296,
@@ -483,7 +483,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-18',
-    src: '/images/story/memory-18.jpg',
+    src: './images/story/memory-18.jpg',
     alt: 'Memória 18 com Marcelo',
     format: 'landscape',
     width: 260,
@@ -499,7 +499,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-14',
-    src: '/images/story/memory-14.jpg',
+    src: './images/story/memory-14.jpg',
     alt: 'Memória 14 com Marcelo',
     format: 'panoramic',
     width: 334,
@@ -515,7 +515,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-10',
-    src: '/images/story/memory-10.jpg',
+    src: './images/story/memory-10.jpg',
     alt: 'Memória 10 com Marcelo',
     format: 'panoramic',
     width: 310,
@@ -531,7 +531,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-17',
-    src: '/images/story/memory-17.jpg',
+    src: './images/story/memory-17.jpg',
     alt: 'Memória 17 com Marcelo',
     format: 'panoramic',
     width: 320,
@@ -547,7 +547,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-19',
-    src: '/images/story/memory-19.jpg',
+    src: './images/story/memory-19.jpg',
     alt: 'Memória 19 com Marcelo',
     format: 'panoramic',
     width: 300,
@@ -563,7 +563,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-21',
-    src: '/images/story/memory-21.jpg',
+    src: './images/story/memory-21.jpg',
     alt: 'Memória 21 com Marcelo',
     format: 'landscape',
     width: 248,
@@ -579,7 +579,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-22',
-    src: '/images/story/memory-22.jpg',
+    src: './images/story/memory-22.jpg',
     alt: 'Memória 22 com Marcelo',
     format: 'panoramic',
     width: 332,
@@ -595,7 +595,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-23',
-    src: '/images/story/memory-23.jpg',
+    src: './images/story/memory-23.jpg',
     alt: 'Memória 23 com Marcelo',
     format: 'landscape',
     width: 268,
@@ -611,7 +611,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-24',
-    src: '/images/story/memory-24.jpg',
+    src: './images/story/memory-24.jpg',
     alt: 'Memória 24 com Marcelo',
     format: 'panoramic',
     width: 316,
@@ -627,7 +627,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-25',
-    src: '/images/story/memory-25.jpg',
+    src: './images/story/memory-25.jpg',
     alt: 'Memória 25 com Marcelo',
     format: 'landscape',
     width: 242,
@@ -643,7 +643,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-26',
-    src: '/images/story/memory-26.jpg',
+    src: './images/story/memory-26.jpg',
     alt: 'Memória 26 com Marcelo',
     format: 'narrow',
     width: 136,
@@ -659,7 +659,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-27',
-    src: '/images/story/memory-27.jpg',
+    src: './images/story/memory-27.jpg',
     alt: 'Memória 27 com Marcelo',
     format: 'narrow',
     width: 132,
@@ -675,7 +675,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-28',
-    src: '/images/story/memory-28.jpg',
+    src: './images/story/memory-28.jpg',
     alt: 'Memória 28 com Marcelo',
     format: 'panoramic',
     width: 324,
@@ -691,7 +691,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-29',
-    src: '/images/story/memory-29.jpg',
+    src: './images/story/memory-29.jpg',
     alt: 'Memória 29 com Marcelo',
     format: 'portrait',
     width: 186,
@@ -707,7 +707,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-30',
-    src: '/images/story/memory-30.jpg',
+    src: './images/story/memory-30.jpg',
     alt: 'Memória 30 com Marcelo',
     format: 'panoramic',
     width: 338,
@@ -723,7 +723,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-31',
-    src: '/images/story/memory-31.jpg',
+    src: './images/story/memory-31.jpg',
     alt: 'Memória 31 com Marcelo',
     format: 'portrait',
     width: 180,
@@ -739,7 +739,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-32',
-    src: '/images/story/memory-32.jpg',
+    src: './images/story/memory-32.jpg',
     alt: 'Memória 32 com Marcelo',
     format: 'portrait',
     width: 194,
@@ -755,7 +755,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-33',
-    src: '/images/story/memory-33.jpg',
+    src: './images/story/memory-33.jpg',
     alt: 'Memória 33 com Marcelo',
     format: 'landscape',
     width: 274,
@@ -771,7 +771,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-34',
-    src: '/images/story/memory-34.jpg',
+    src: './images/story/memory-34.jpg',
     alt: 'Memória 34 com Marcelo',
     format: 'landscape',
     width: 262,
@@ -787,7 +787,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-35',
-    src: '/images/story/memory-35.jpg',
+    src: './images/story/memory-35.jpg',
     alt: 'Memória 35 com Marcelo',
     format: 'panoramic',
     width: 312,
@@ -803,7 +803,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-36',
-    src: '/images/story/memory-36.jpg',
+    src: './images/story/memory-36.jpg',
     alt: 'Memória 36 com Marcelo',
     format: 'narrow',
     width: 154,
@@ -819,7 +819,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-37',
-    src: '/images/story/memory-37.jpg',
+    src: './images/story/memory-37.jpg',
     alt: 'Memória 37 com Marcelo',
     format: 'landscape',
     width: 244,
@@ -835,7 +835,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-38',
-    src: '/images/story/memory-38.jpg',
+    src: './images/story/memory-38.jpg',
     alt: 'Memória 38 com Marcelo',
     format: 'landscape',
     width: 252,
@@ -851,7 +851,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-39',
-    src: '/images/story/memory-39.jpg',
+    src: './images/story/memory-39.jpg',
     alt: 'Memória 39 com Marcelo',
     format: 'landscape',
     width: 266,
@@ -867,7 +867,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-40',
-    src: '/images/story/memory-40.jpg',
+    src: './images/story/memory-40.jpg',
     alt: 'Memória 40 com Marcelo',
     format: 'landscape',
     width: 238,
@@ -883,7 +883,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-41',
-    src: '/images/story/memory-41.jpg',
+    src: './images/story/memory-41.jpg',
     alt: 'Memória 41 com Marcelo',
     format: 'portrait',
     width: 184,
@@ -899,7 +899,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-42',
-    src: '/images/story/memory-42.jpg',
+    src: './images/story/memory-42.jpg',
     alt: 'Memória 42 com Marcelo',
     format: 'panoramic',
     width: 328,
@@ -915,7 +915,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-43',
-    src: '/images/story/memory-43.jpg',
+    src: './images/story/memory-43.jpg',
     alt: 'Memória 43 com Marcelo',
     format: 'portrait',
     width: 178,
@@ -931,7 +931,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-44',
-    src: '/images/story/memory-44.jpg',
+    src: './images/story/memory-44.jpg',
     alt: 'Memória 44 com Marcelo',
     format: 'landscape',
     width: 270,
@@ -947,7 +947,7 @@ export const STORY_PHOTOS = [
   },
   {
     id: 'memory-45',
-    src: '/images/story/memory-45.jpg',
+    src: './images/story/memory-45.jpg',
     alt: 'Memória 45 com Marcelo',
     format: 'landscape',
     width: 256,
@@ -974,7 +974,7 @@ export const FINAL_MEMORIES_CONFIG = {
   chapterLabel: '03 — MEMÓRIAS FINAIS',
   introPrompt: 'Continue descendo para revelar as lembranças',
   background: {
-    src: '/images/final/final-background.jpg',
+    src: './images/final/final-background.jpg',
     alt: 'Fotografia principal de encerramento com Marcelo',
     objectPosition: '50% 42%',
   },
@@ -983,7 +983,7 @@ export const FINAL_MEMORIES_CONFIG = {
   overlays: [
     {
       id: 'final-01',
-      src: '/images/final/final-01.jpg',
+      src: './images/final/final-01.jpg',
       alt: 'Lembrança final 01',
       order: 1,
       desktop: { top: '8%', left: '5%', width: '19vw', aspectRatio: '4 / 3' },
@@ -994,7 +994,7 @@ export const FINAL_MEMORIES_CONFIG = {
     },
     {
       id: 'final-02',
-      src: '/images/final/final-02.jpg',
+      src: './images/final/final-02.jpg',
       alt: 'Lembrança final 02',
       order: 2,
       desktop: { top: '9%', right: '5%', width: '15.5vw', aspectRatio: '1 / 1' },
@@ -1005,7 +1005,7 @@ export const FINAL_MEMORIES_CONFIG = {
     },
     {
       id: 'final-03',
-      src: '/images/final/final-03.jpg',
+      src: './images/final/final-03.jpg',
       alt: 'Lembrança final 03',
       order: 3,
       desktop: { bottom: '10%', left: '6%', width: '15vw', aspectRatio: '1 / 1' },
@@ -1016,7 +1016,7 @@ export const FINAL_MEMORIES_CONFIG = {
     },
     {
       id: 'final-04',
-      src: '/images/final/final-04.jpg',
+      src: './images/final/final-04.jpg',
       alt: 'Lembrança final 04',
       order: 4,
       desktop: { bottom: '9%', right: '6%', width: '16vw', aspectRatio: '1 / 1' },
@@ -1027,7 +1027,7 @@ export const FINAL_MEMORIES_CONFIG = {
     },
     {
       id: 'final-05',
-      src: '/images/final/final-05.jpg',
+      src: './images/final/final-05.jpg',
       alt: 'Lembrança final 05',
       order: 5,
       desktop: { top: '38%', left: '3.5%', width: '13.5vw', aspectRatio: '1 / 1' },
@@ -1038,7 +1038,7 @@ export const FINAL_MEMORIES_CONFIG = {
     },
     {
       id: 'final-06',
-      src: '/images/final/final-06.jpg',
+      src: './images/final/final-06.jpg',
       alt: 'Lembrança final 06',
       order: 6,
       desktop: { top: '37%', right: '3.5%', width: '18vw', aspectRatio: '16 / 9' },
@@ -1049,7 +1049,7 @@ export const FINAL_MEMORIES_CONFIG = {
     },
     {
       id: 'final-07',
-      src: '/images/final/final-07.jpg',
+      src: './images/final/final-07.jpg',
       alt: 'Lembrança final 07',
       order: 7,
       desktop: { top: '6%', left: '38%', width: '17vw', aspectRatio: '16 / 9' },
@@ -1060,7 +1060,7 @@ export const FINAL_MEMORIES_CONFIG = {
     },
     {
       id: 'final-08',
-      src: '/images/final/final-08.jpg',
+      src: './images/final/final-08.jpg',
       alt: 'Lembrança final 08',
       order: 8,
       desktop: { bottom: '7%', left: '41%', width: '14vw', aspectRatio: '1 / 1' },
