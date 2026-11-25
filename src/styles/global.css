@@ -1,0 +1,1033 @@
+:root {
+  /* Editorial Palette — warm paper, archival ink, neutral photography-first */
+  --bg-paper: #faf8f4;
+  --bg-paper-soft: rgba(250, 248, 244, 0.88);
+  --bg-dark: #0e0e0d;
+  --ink-primary: #141413;
+  --ink-secondary: #57534e;
+  --ink-muted: #8a847c;
+  --ink-light: #f6f4ef;
+  --ink-light-muted: rgba(246, 244, 239, 0.72);
+  --hairline: rgba(20, 20, 19, 0.11);
+  --hairline-light: rgba(246, 244, 239, 0.22);
+
+  /* Editorial Typography */
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-editorial: 'Newsreader', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Motion & Radii */
+  --photo-radius: 3px;
+  --photo-shadow: 0 22px 54px -18px rgba(15, 15, 14, 0.22),
+    0 6px 16px -6px rgba(15, 15, 14, 0.12);
+  --photo-shadow-dark: 0 28px 65px -16px rgba(0, 0, 0, 0.58),
+    0 8px 22px -6px rgba(0, 0, 0, 0.42);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--bg-paper);
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--bg-paper);
+  color: var(--ink-primary);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ==========================================================================
+   CINEMATIC MEMORY INTRO + FLOATING WHITE STARS
+   ========================================================================== */
+.floating-stars {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: block;
+}
+
+.memory-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0c0c0b;
+  color: var(--ink-light);
+  isolation: isolate;
+}
+
+.memory-intro__grain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+}
+
+.memory-intro__vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 72% 68% at 50% 50%,
+    rgba(24, 23, 21, 0.25) 0%,
+    rgba(12, 12, 11, 0.6) 65%,
+    rgba(6, 6, 6, 0.92) 100%
+  );
+}
+
+.memory-intro__stars {
+  z-index: 3;
+}
+
+.memory-intro__album {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.memory-intro__photo {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: 0 26px 64px -18px rgba(0, 0, 0, 0.72),
+    0 8px 22px -6px rgba(0, 0, 0, 0.48);
+  will-change: transform, opacity;
+  opacity: 0;
+}
+
+.memory-intro__photo--framed {
+  padding: clamp(4px, 0.48vw, 7px);
+  background-color: #f4f1ea;
+}
+
+.memory-intro__photo--borderless {
+  padding: 0;
+  background-color: #161614;
+}
+
+.memory-intro__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1px;
+}
+
+.memory-intro__center {
+  position: relative;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem 2.5rem;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 82% 72% at 50% 50%,
+    rgba(12, 12, 11, 0.72) 0%,
+    rgba(12, 12, 11, 0.36) 60%,
+    rgba(12, 12, 11, 0) 100%
+  );
+}
+
+.memory-intro__eyebrow {
+  font-family: var(--font-sans);
+  font-size: clamp(0.6rem, 0.78vw, 0.72rem);
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--ink-light-muted);
+  margin-bottom: clamp(0.75rem, 1.8vh, 1.35rem);
+  will-change: transform, opacity;
+}
+
+.memory-intro__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.1rem, 10.6vw, 9.6rem);
+  line-height: 0.9;
+  letter-spacing: 0.14em;
+  text-indent: 0.14em;
+  color: var(--ink-light);
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.65);
+  user-select: none;
+  will-change: transform, opacity, letter-spacing;
+}
+
+.final-stars {
+  z-index: 3;
+}
+
+/* ==========================================================================
+   MINIMAL EDITORIAL NAVIGATION BAR
+   ========================================================================== */
+.editorial-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.35rem clamp(1.25rem, 3.5vw, 3rem);
+  pointer-events: none;
+  transition: color 0.45s ease;
+  color: var(--ink-primary);
+}
+
+.editorial-nav--dark {
+  color: var(--ink-light);
+}
+
+.editorial-nav__brand {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  pointer-events: auto;
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.86;
+}
+
+.editorial-nav__controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  pointer-events: auto;
+}
+
+.editorial-nav__chapters {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  list-style: none;
+}
+
+.editorial-nav__audio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: none;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0.32rem 0.72rem;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.56;
+  transition: opacity 0.3s ease;
+}
+
+.editorial-nav__audio:hover,
+.editorial-nav__audio--playing {
+  opacity: 0.92;
+}
+
+.editorial-nav__audio-label {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.editorial-nav__bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 9px;
+}
+
+.editorial-nav__bars span {
+  display: block;
+  width: 1.5px;
+  height: 3px;
+  background: currentColor;
+  border-radius: 1px;
+  transition: height 0.25s ease;
+}
+
+.editorial-nav__audio--playing .editorial-nav__bars span:nth-child(1) {
+  animation: soundBar 1.15s ease-in-out infinite;
+}
+
+.editorial-nav__audio--playing .editorial-nav__bars span:nth-child(2) {
+  animation: soundBar 0.9s ease-in-out 0.2s infinite;
+}
+
+.editorial-nav__audio--playing .editorial-nav__bars span:nth-child(3) {
+  animation: soundBar 1.3s ease-in-out 0.35s infinite;
+}
+
+@keyframes soundBar {
+  0%,
+  100% {
+    height: 3px;
+  }
+  50% {
+    height: 9px;
+  }
+}
+
+.editorial-nav__link {
+  background: none;
+  border: none;
+  padding: 0.2rem 0;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: inherit;
+  opacity: 0.42;
+  transition: opacity 0.3s ease;
+  position: relative;
+}
+
+.editorial-nav__link:hover,
+.editorial-nav__link--active {
+  opacity: 1;
+}
+
+.editorial-nav__link--active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: currentColor;
+}
+
+/* ==========================================================================
+   01. HERO — MAR [FOTOGRAFIA] CELO
+   ========================================================================== */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  height: 100svh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-paper);
+  isolation: isolate;
+}
+
+.hero__bg-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  will-change: transform, opacity;
+}
+
+/* Soft archival paper wash so editorial serif pops with museum clarity */
+.hero__bg-veil {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      ellipse 78% 72% at 50% 50%,
+      rgba(250, 248, 244, 0.72) 0%,
+      rgba(250, 248, 244, 0.36) 62%,
+      rgba(250, 248, 244, 0.56) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(250, 248, 244, 0.25) 0%,
+      rgba(250, 248, 244, 0) 30%,
+      rgba(250, 248, 244, 0) 76%,
+      var(--bg-paper) 100%
+    );
+}
+
+.hero__eyebrow {
+  position: relative;
+  z-index: 3;
+  margin-bottom: clamp(1.25rem, 3vh, 2.5rem);
+  font-family: var(--font-sans);
+  font-size: clamp(0.64rem, 0.8vw, 0.75rem);
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+}
+
+/* Centerpiece split composition: MAR [PHOTO] CELO on ONE horizontal visual line */
+.hero__stage {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1480px;
+  padding: 0 clamp(0.75rem, 3vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.65rem, 2.4vw, 2.8rem);
+}
+
+.hero__word {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.3rem, 11.4vw, 11.5rem);
+  line-height: 0.86;
+  letter-spacing: -0.025em;
+  color: var(--ink-primary);
+  white-space: nowrap;
+  user-select: none;
+  will-change: transform, opacity;
+}
+
+.hero__word--left {
+  text-align: right;
+}
+
+.hero__word--right {
+  text-align: left;
+}
+
+/* Editorial photographic plate dividing the name (not a generic UI card) */
+.hero__photo-frame {
+  position: relative;
+  flex-shrink: 0;
+  width: clamp(92px, 19.5vw, 290px);
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: #e9e4db;
+  box-shadow: 0 32px 72px -24px rgba(18, 17, 15, 0.34),
+    0 8px 20px -8px rgba(18, 17, 15, 0.16),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+  will-change: transform, opacity;
+}
+
+.hero__photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+.hero__footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(1.5rem, 3.8vh, 2.75rem);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.hero__subtitle {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  color: var(--ink-secondary);
+  max-width: 44ch;
+}
+
+.hero__scroll-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 28px;
+  background: linear-gradient(to bottom, var(--ink-secondary), transparent);
+  animation: scrollPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%,
+  100% {
+    transform: scaleY(0.55);
+    opacity: 0.35;
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 0.95;
+    transform-origin: top;
+  }
+}
+
+/* ==========================================================================
+   02. OUR STORY — PHOTO STREAM + EDITORIAL NARRATIVE
+   ========================================================================== */
+.story-section {
+  position: relative;
+  width: 100%;
+  min-height: 220vh;
+  background-color: var(--bg-paper);
+  overflow: hidden;
+  padding: clamp(7rem, 14vh, 11rem) 0 clamp(9rem, 16vh, 13rem);
+  isolation: isolate;
+}
+
+/* Continuous horizontal photo stream layer */
+.photo-stream {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.photo-stream__track {
+  position: absolute;
+  left: 0;
+  will-change: transform;
+}
+
+.photo-stream__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--photo-radius);
+  background-color: #ebe6dd;
+  box-shadow: var(--photo-shadow);
+  will-change: transform;
+}
+
+.photo-stream__item--back {
+  opacity: 0.56;
+  filter: saturate(0.88);
+}
+
+.photo-stream__item--mid {
+  opacity: 0.78;
+}
+
+.photo-stream__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Foreground narrative column with seamless atmospheric paper veil (never a boxy card) */
+.story-content {
+  position: relative;
+  z-index: 10;
+  width: min(92%, 700px);
+  margin: 0 auto;
+  padding: clamp(2.75rem, 6vw, 4.75rem) clamp(1.25rem, 4vw, 3.25rem)
+    clamp(3.5rem, 8vh, 6rem);
+  text-align: center;
+}
+
+.story-content::before {
+  content: '';
+  position: absolute;
+  inset: -4% -18%;
+  z-index: -1;
+  background: linear-gradient(
+      to right,
+      rgba(250, 248, 244, 0) 0%,
+      rgba(250, 248, 244, 0.86) 18%,
+      rgba(250, 248, 244, 0.94) 50%,
+      rgba(250, 248, 244, 0.86) 82%,
+      rgba(250, 248, 244, 0) 100%
+    );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.story-header {
+  margin-bottom: clamp(3.5rem, 8vh, 5.75rem);
+}
+
+.story-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.story-meta__rule {
+  width: 28px;
+  height: 1px;
+  background-color: var(--hairline);
+}
+
+.story-salutation {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.85rem, 5.8vw, 4.65rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  color: var(--ink-primary);
+  margin-bottom: 1.45rem;
+}
+
+.story-opening {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.24rem, 1.85vw, 1.5rem);
+  line-height: 1.65;
+  color: var(--ink-secondary);
+}
+
+/* Continuous editorial narrative flow */
+.story-flow {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3.25rem, 7.2vh, 5.25rem);
+}
+
+.story-passage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.story-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: clamp(1.75rem, 3.8vh, 2.6rem);
+  color: var(--ink-muted);
+}
+
+.story-marker__line {
+  width: 22px;
+  height: 1px;
+  background-color: rgba(20, 20, 19, 0.16);
+}
+
+.story-marker__label {
+  font-family: var(--font-sans);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.story-pause {
+  display: flex;
+  justify-content: center;
+  margin-bottom: clamp(2rem, 4.2vh, 2.9rem);
+}
+
+.story-pause__rule {
+  width: 36px;
+  height: 1px;
+  background-color: rgba(20, 20, 19, 0.16);
+}
+
+.story-passage__body {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.85rem, 4vh, 2.85rem);
+  width: 100%;
+}
+
+.story-paragraph {
+  font-family: var(--font-editorial);
+  font-weight: 300;
+  font-size: clamp(1.08rem, 1.38vw, 1.24rem);
+  line-height: 1.94;
+  letter-spacing: -0.004em;
+  color: #1e1d1b;
+  max-width: 55ch;
+  margin: 0 auto;
+  will-change: transform, opacity;
+}
+
+.story-paragraph--reflective {
+  font-style: italic;
+  font-size: clamp(1.16rem, 1.54vw, 1.38rem);
+  line-height: 1.78;
+  color: var(--ink-primary);
+  padding: 0.5rem 0;
+  max-width: 50ch;
+}
+
+/* Emotional closing centerpiece preparing Chapter 03 */
+.story-closing {
+  margin-top: clamp(4.75rem, 11vh, 8rem);
+  padding-top: clamp(2.5rem, 5vh, 4rem);
+  padding-bottom: clamp(1.5rem, 4vh, 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.story-closing__wish {
+  font-family: var(--font-editorial);
+  font-weight: 300;
+  font-size: clamp(1.18rem, 1.65vw, 1.42rem);
+  line-height: 1.6;
+  color: var(--ink-secondary);
+  margin-bottom: clamp(1.5rem, 3.6vh, 2.5rem);
+}
+
+.story-closing__honor {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 4.9vw, 3.85rem);
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  color: var(--ink-primary);
+  max-width: 18ch;
+  margin: 0 auto;
+  will-change: transform, opacity;
+}
+
+/* ==========================================================================
+   03. FINAL MEMORIES — FULLSCREEN PHOTO + PROGRESSIVE MURAL
+   ========================================================================== */
+.final-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--bg-dark);
+  color: var(--ink-light);
+}
+
+.final-stage {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  background-color: var(--bg-dark);
+}
+
+/* 100% full-viewport background photograph (object-fit: cover, never a card) */
+.final-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.final-bg__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+.final-bg__vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(
+      ellipse 74% 70% at 50% 48%,
+      rgba(10, 10, 9, 0.08) 0%,
+      rgba(10, 10, 9, 0.36) 65%,
+      rgba(10, 10, 9, 0.68) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(10, 10, 9, 0.38) 0%,
+      rgba(10, 10, 9, 0) 24%,
+      rgba(10, 10, 9, 0) 72%,
+      rgba(10, 10, 9, 0.72) 100%
+    );
+  pointer-events: none;
+}
+
+/* Subtle initial prompt that fades away as the mural starts revealing */
+.final-intro {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(2rem, 5vh, 3.5rem);
+  transform: translateX(-50%);
+  z-index: 25;
+  text-align: center;
+  pointer-events: none;
+  width: min(90%, 460px);
+}
+
+.final-intro__label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink-light-muted);
+  margin-bottom: 0.55rem;
+}
+
+.final-intro__prompt {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  color: var(--ink-light);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
+}
+
+/* Overlay memory photographs forming the editorial mural */
+.final-overlays {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.final-memory {
+  position: absolute;
+  padding: clamp(4px, 0.45vw, 7px);
+  background-color: #faf8f4;
+  border-radius: 2px;
+  box-shadow: var(--photo-shadow-dark);
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+.final-memory__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1px;
+}
+
+/* Final emotional closing message over the completed mural */
+.final-closing {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+  text-align: center;
+  width: min(88%, 620px);
+  padding: clamp(1.5rem, 3.5vw, 2.6rem) clamp(1.5rem, 4vw, 3rem);
+  background: radial-gradient(
+    ellipse 85% 80% at 50% 50%,
+    rgba(14, 14, 13, 0.72) 0%,
+    rgba(14, 14, 13, 0.48) 65%,
+    rgba(14, 14, 13, 0) 100%
+  );
+  pointer-events: none;
+}
+
+.final-closing__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.3rem, 5.4vw, 4.4rem);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  color: var(--ink-light);
+  text-shadow: 0 6px 28px rgba(0, 0, 0, 0.6);
+  margin-bottom: 0.9rem;
+}
+
+.final-closing__subtitle {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1rem, 1.45vw, 1.24rem);
+  line-height: 1.55;
+  color: rgba(246, 244, 239, 0.9);
+  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.65);
+}
+
+/* Quiet editorial colophon below the pinned finale */
+.colophon {
+  background-color: var(--bg-dark);
+  color: var(--ink-light-muted);
+  border-top: 1px solid var(--hairline-light);
+  padding: clamp(2.5rem, 5vh, 4rem) clamp(1.5rem, 4vw, 3rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.colophon__note {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.colophon__replay {
+  background: none;
+  border: 1px solid var(--hairline-light);
+  color: var(--ink-light);
+  padding: 0.7rem 1.35rem;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.colophon__replay:hover {
+  background-color: var(--ink-light);
+  color: var(--bg-dark);
+  border-color: var(--ink-light);
+}
+
+/* ==========================================================================
+   RESPONSIVE REFINEMENTS (TABLET & MOBILE)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .editorial-nav__brand {
+    font-size: 0.64rem;
+    letter-spacing: 0.16em;
+  }
+
+  .editorial-nav__controls {
+    gap: 0.9rem;
+  }
+
+  .editorial-nav__chapters {
+    gap: 0.85rem;
+  }
+
+  .editorial-nav__link {
+    font-size: 0.64rem;
+  }
+
+  .editorial-nav__audio {
+    padding: 0.28rem 0.58rem;
+  }
+
+  .editorial-nav__audio-label {
+    font-size: 0.58rem;
+  }
+
+  .hero__stage {
+    gap: clamp(0.45rem, 2.2vw, 0.95rem);
+  }
+
+  .hero__word {
+    font-size: clamp(2.45rem, 12.2vw, 4.4rem);
+  }
+
+  .hero__photo-frame {
+    width: clamp(82px, 24vw, 138px);
+  }
+
+  .story-section {
+    min-height: 195vh;
+  }
+
+  .story-content {
+    width: min(94%, 640px);
+    padding: 2rem 1rem;
+  }
+
+  .story-content::before {
+    inset: -3% -8%;
+    background: linear-gradient(
+      to right,
+      rgba(250, 248, 244, 0.25) 0%,
+      rgba(250, 248, 244, 0.92) 12%,
+      rgba(250, 248, 244, 0.96) 50%,
+      rgba(250, 248, 244, 0.92) 88%,
+      rgba(250, 248, 244, 0.25) 100%
+    );
+  }
+
+  .photo-stream__item {
+    transform-origin: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero__word {
+    font-size: clamp(2.1rem, 11.4vw, 3.1rem);
+  }
+
+  .hero__photo-frame {
+    width: 76px;
+  }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY — REDUCED MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll-line,
+  .editorial-nav__audio--playing .editorial-nav__bars span {
+    animation: none;
+  }
+}
